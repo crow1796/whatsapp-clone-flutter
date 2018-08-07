@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'CameraScreen.dart';
+import 'ChatScreen.dart';
+import 'StatusScreen.dart';
+import 'CallScreen.dart';
 
 class HomeScreen extends StatefulWidget{
     @override
@@ -20,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen>
     Widget build(BuildContext context){
         return Scaffold(
             appBar: AppBar(
+                backgroundColor: Theme.of(context).accentColor,
                 title: Text("WhatsApp Clone"),
                 elevation: 0.7,
                 bottom: TabBar(
@@ -27,25 +32,28 @@ class _HomeScreenState extends State<HomeScreen>
                     indicatorColor: Colors.white,
                     tabs: <Widget>[
                         Tab(icon: Icon(Icons.camera)),
-                        Tab(text: "CHATS"),
-                        Tab(text: "STATUS"),
-                        Tab(text: "CALLS"),
+                        Tab(icon: Icon(Icons.message)),
+                        Tab(icon: Icon(Icons.radio_button_checked)),
+                        Tab(icon: Icon(Icons.call)),
                     ],
                 ),
+                actions: <Widget>[
+                    Container(child: Icon(Icons.search), margin: EdgeInsets.all(5.0)),
+                    Container(child: Icon(Icons.more_vert), margin: EdgeInsets.all(5.0))
+                ],
             ),
             body: TabBarView(
                 controller: _tabController,
                 children: <Widget>[
-                    Container(child: Icon(Icons.camera)),
-                    Container(child: Text("CHATS")),
-                    Container(child: Text("STATUS")),
-                    Container(child: Text("CALLS")),
+                    CameraScreen(),
+                    ChatScreen(),
+                    StatusScreen(),
+                    CallScreen(),
                 ],
             ),
             floatingActionButton: FloatingActionButton(
                 backgroundColor: Theme.of(context).accentColor,
-                child: Icon(Icons.message),
-                foregroundColor: Colors.white,
+                child: Icon(Icons.message, color: Colors.white),
                 onPressed: () => print("asdasdas"),
             ),
         );
