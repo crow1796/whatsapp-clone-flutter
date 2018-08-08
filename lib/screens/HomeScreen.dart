@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'CameraScreen.dart';
-import 'ChatScreen.dart';
-import 'StatusScreen.dart';
-import 'CallScreen.dart';
+import 'package:whatsapp_clone/screens/CallScreen.dart';
+import 'package:whatsapp_clone/screens/CameraScreen.dart';
+import 'package:whatsapp_clone/screens/ChatScreen.dart';
+import 'package:whatsapp_clone/screens/StatusScreen.dart';
 
 class HomeScreen extends StatefulWidget{
     @override
@@ -24,8 +24,8 @@ class _HomeScreenState extends State<HomeScreen>
     Widget build(BuildContext context){
         return Scaffold(
             appBar: AppBar(
-                backgroundColor: Theme.of(context).accentColor,
-                title: Text("WhatsApp Clone"),
+                backgroundColor: Theme.of(context).primaryColor,
+                title: Text("WhatsApp"),
                 elevation: 0.7,
                 bottom: TabBar(
                     controller: _tabController,
@@ -38,8 +38,8 @@ class _HomeScreenState extends State<HomeScreen>
                     ],
                 ),
                 actions: <Widget>[
-                    Container(child: Icon(Icons.search), margin: EdgeInsets.all(5.0)),
-                    Container(child: Icon(Icons.more_vert), margin: EdgeInsets.all(5.0))
+                    Padding(child: Icon(Icons.search), padding: EdgeInsets.all(5.0)),
+                    Padding(child: Icon(Icons.more_vert), padding: EdgeInsets.all(5.0))
                 ],
             ),
             body: TabBarView(
